@@ -1,5 +1,7 @@
 package edu.up.cs301.pig;
 
+import android.util.Log;
+
 import edu.up.cs301.game.GameFramework.GameComputerPlayer;
 import edu.up.cs301.game.GameFramework.actionMessage.GameAction;
 import edu.up.cs301.game.GameFramework.infoMessage.GameInfo;
@@ -29,6 +31,17 @@ public class PigComputerPlayer extends GameComputerPlayer {
     @Override
     protected void receiveInfo(GameInfo info) {
         // TODO  You will implement this method
+        //if(game instanceof PigGameState){
+            Log.i("asdf", "computer received");
+            PigGameState p = (PigGameState) info;
+            if(playerNum == p.getPlayerId()){
+                int chance = (int)(Math.random()*3) +1;
+                if(chance >= 3)
+                    game.sendAction(new PigHoldAction(this));
+                else
+                    game.sendAction(new PigRollAction(this));
+            }
+        //}
     }//receiveInfo
 
 }
