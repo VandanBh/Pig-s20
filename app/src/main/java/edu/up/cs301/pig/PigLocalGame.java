@@ -47,14 +47,14 @@ public class PigLocalGame extends LocalGame {
             if(pGS.getPlayerId() == 0){
                 pGS.setScoreP0(pGS.getScoreP0() + pGS.getRunningTotal());
                 pGS.setRunningTotal(0);
-                if(players.length > 2){
+                if(players.length > 1){
                     pGS.setPlayerId(1);
                 }
                 return true;
             } else if(pGS.getPlayerId() == 1){
                 pGS.setScoreP1(pGS.getScoreP1() + pGS.getRunningTotal());
                 pGS.setRunningTotal(0);
-                if(players.length>2){
+                if(players.length>1){
                     pGS.setPlayerId(0);
                 }
                 return true;
